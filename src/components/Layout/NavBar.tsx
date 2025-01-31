@@ -1,4 +1,4 @@
-import pb from "../../utility/backend";
+import pb, { getAvatar } from "../../utility/backend";
 import Login from "../Login";
 import Logout from "../Logout";
 import { isLoggedIn } from "../../utility/signal";
@@ -11,15 +11,17 @@ const NavBar = () => {
     return pb.authStore.record as user
   }
 
-  return <div class="bg-gray-200 border-b-gray-500 border-b-2 p-2 flex justify-end">
-    {user() && <div class="mr-auto flex flex-col">
-      <span>
-        {user()?.name}
-      </span>
-      <span>
-        {user()?.email}
-      </span>
-      <img src={user()?.avatar} alt="user avatar"/>
+  return <div class="bg-gray-200 border-b-gray-500 border-b-2 p-2 flex justify-end items-center">
+    {user() && <div class="mr-auto flex items-center gap-2">
+      <img src={getAvatar(user())} alt="user avatar" class="w-20 h-20 object-cover rounded-full "/>
+      <div>
+        <p>
+          {user()?.username}
+        </p>
+        <p>
+          {user()?.email}
+        </p>
+      </div>
     </div>}
     {isLoggedIn() && <Logout/> || <Login />}
   </div>;

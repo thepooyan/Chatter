@@ -9,7 +9,6 @@ export interface user extends pbResponse {
   avatar: string;
   email: string;
   emailVisibility: boolean;
-  name: string;
   role: "admin" | "user";
   username: string;
   verified: boolean;

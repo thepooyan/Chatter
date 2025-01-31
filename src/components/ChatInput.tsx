@@ -1,3 +1,4 @@
+import { createEffect } from "solid-js";
 import { newPost } from "../utility/backend";
 import { isLoggedIn } from "../utility/signal";
 
@@ -11,7 +12,10 @@ const ChatInput = () => {
     inputRef!.value = ""
   }
 
-  const disabled = !isLoggedIn();
+  let disabled;
+  createEffect(() => {
+     disabled = !isLoggedIn();
+  })
 
   return (
     <form class={` relative border-black border-2 p-2 m-2 rounded `} onsubmit={submitHandler}>

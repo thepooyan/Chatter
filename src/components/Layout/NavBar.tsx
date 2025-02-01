@@ -13,7 +13,7 @@ const NavBar = () => {
 
   return <div class="bg-gray-200 border-b-gray-500 border-b-2 p-2 flex justify-end items-center">
     {user() && <div class="mr-auto flex items-center gap-2">
-      <img src={getAvatar(user())} alt="user avatar" class="w-20 h-20 object-cover rounded-full "/>
+      <img src={getAvatar(user())} alt="user avatar" class="w-20 h-20 object-cover rounded-full text-transparent bg-gray-300"/>
       <div>
         <p>
           {user()?.username}

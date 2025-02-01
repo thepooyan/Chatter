@@ -1,6 +1,7 @@
 import PocketBase from "pocketbase"
 import { post, user } from "./interface";
 import { createResource } from "solid-js";
+import { clearDelegatedEvents } from "solid-js/web";
 const pb = new PocketBase('http://127.0.0.1:8090');
 export default pb
 
@@ -42,6 +43,8 @@ export const removePost = async (recordId: string) => {
 }
 
 export const getAvatar = (userRecord: user | null ) => {
-  if (userRecord === null) return ""
-  return pb.files.getURL(userRecord, userRecord.avatar)
+  if (userRecord === null) return "http://localhost:8090/default-user.jpeg"
+  let url = pb.files.getURL(userRecord, userRecord.avatar) 
+  console.log(url)
+  return url === "" ? "http://localhost:8090/default-user.jpeg" : url
 }

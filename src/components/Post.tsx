@@ -17,7 +17,7 @@ const Post = ({post}:props) => {
       <span class="text-gray-700 text-xs ml-2">
         ({post.expand?.user.username})
       </span>
-      <button class="text-xs text-red-500 ml-2" onclick={removeMe}>remove</button>
+      {isMyPost(post) && <button class="text-xs text-red-500 ml-2" onclick={removeMe}>remove</button>}
     </div>
   )
 }

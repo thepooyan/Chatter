@@ -14,7 +14,7 @@ const ChatView = () => {
         <p>something went wrong</p>
       </Show>
       <Show when={posts()}>
-        <div class="pt-2">
+        <div class="p-2">
           {posts()?.map(p => <Post post={p}/>)}
         </div>
       </Show>

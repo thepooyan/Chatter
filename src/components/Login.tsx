@@ -4,7 +4,7 @@ import { setIsLoggedIn } from "../utility/signal";
 const Login = () => {
 
   const auth = async () => {
-    await pb.collection('users').authWithOAuth2({ provider: 'google' });
+    await pb.collection('users').authWithOAuth2({ provider: 'google', createData: {role: "user"} });
     setIsLoggedIn(true)
   }
 

@@ -45,6 +45,5 @@ export const removePost = async (recordId: string) => {
 export const getAvatar = (userRecord: user | null ) => {
   if (userRecord === null) return "http://localhost:8090/default-user.jpeg"
   let url = pb.files.getURL(userRecord, userRecord.avatar) 
-  console.log(url)
   return url === "" ? "http://localhost:8090/default-user.jpeg" : url
 }
